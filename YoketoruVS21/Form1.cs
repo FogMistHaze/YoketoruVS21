@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace YoketoruVS21
 {
     public partial class Form1 : Form
     {
 
-        
+        const bool isDebug = true;
 
         enum State
         {
@@ -26,6 +27,11 @@ namespace YoketoruVS21
         State currentState = State.None;
         State nextState = State.Title;
 
+        //Dll=ダイナミックリンクライブラリ
+        //[]はC#のほーぶん
+        [DllImport("user32.dll")]   
+        public static extern short GetAsyncKeyState(int vKey);
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +39,18 @@ namespace YoketoruVS21
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if(isDebug)
+            {
+                if(GetAsyncKeyState((int)Keys.O)<0)
+                {
+                    nextState = State.Gameover;
+                }
+                else if(GetAsyncKeyState((int)Keys.C)<0)
+                {
+                    nextState = State.Clear;
+                }
+            }
+
             if(nextState!=State.None)
             {
                 initProc();
@@ -65,10 +83,12 @@ namespace YoketoruVS21
 
                 case State.Gameover:
                     Gameover.Visible = true;
+                    Modoru.Visible = true;
                     break;
 
                 case State.Clear:
                     Clear.Visible = true;
+                    Modoru.Visible = true;
                     break;
             }
         }
@@ -82,5 +102,13 @@ namespace YoketoruVS21
         {
             nextState = State.Title;
         }
+
+
+        
+        private void Title_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }

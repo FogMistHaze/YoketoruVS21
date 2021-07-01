@@ -48,20 +48,21 @@ namespace YoketoruVS21
             this.Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Title.Font = new System.Drawing.Font("プイッコ", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Title.ForeColor = System.Drawing.Color.DarkCyan;
-            this.Title.Location = new System.Drawing.Point(160, 101);
+            this.Title.Location = new System.Drawing.Point(160, 85);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(433, 72);
             this.Title.TabIndex = 0;
             this.Title.Text = "よけとる2021";
+            this.Title.Click += new System.EventHandler(this.Title_Click);
             // 
             // Start
             // 
             this.Start.BackColor = System.Drawing.Color.Pink;
             this.Start.Font = new System.Drawing.Font("プイッコ", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Start.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.Start.Location = new System.Drawing.Point(270, 285);
+            this.Start.Location = new System.Drawing.Point(280, 297);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(213, 69);
+            this.Start.Size = new System.Drawing.Size(193, 57);
             this.Start.TabIndex = 1;
             this.Start.Text = "すたーと";
             this.Start.UseVisualStyleBackColor = false;
@@ -70,7 +71,7 @@ namespace YoketoruVS21
             // Cmaru
             // 
             this.Cmaru.AutoSize = true;
-            this.Cmaru.Location = new System.Drawing.Point(12, 422);
+            this.Cmaru.Location = new System.Drawing.Point(568, 422);
             this.Cmaru.Name = "Cmaru";
             this.Cmaru.Size = new System.Drawing.Size(173, 15);
             this.Cmaru.TabIndex = 2;
@@ -112,7 +113,7 @@ namespace YoketoruVS21
             this.Gameover.AutoSize = true;
             this.Gameover.Font = new System.Drawing.Font("プイッコ", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Gameover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Gameover.Location = new System.Drawing.Point(194, 193);
+            this.Gameover.Location = new System.Drawing.Point(184, 193);
             this.Gameover.Name = "Gameover";
             this.Gameover.Size = new System.Drawing.Size(384, 61);
             this.Gameover.TabIndex = 7;
@@ -123,9 +124,9 @@ namespace YoketoruVS21
             this.Modoru.BackColor = System.Drawing.Color.Pink;
             this.Modoru.Font = new System.Drawing.Font("プイッコ", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Modoru.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.Modoru.Location = new System.Drawing.Point(270, 285);
+            this.Modoru.Location = new System.Drawing.Point(12, 377);
             this.Modoru.Name = "Modoru";
-            this.Modoru.Size = new System.Drawing.Size(213, 69);
+            this.Modoru.Size = new System.Drawing.Size(193, 57);
             this.Modoru.TabIndex = 8;
             this.Modoru.Text = "たいとるへ";
             this.Modoru.UseVisualStyleBackColor = false;
