@@ -151,11 +151,11 @@ namespace YoketoruVS21
             // Temp
             // 
             this.Temp.AutoSize = true;
-            this.Temp.Font = new System.Drawing.Font("プイッコ", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Temp.Font = new System.Drawing.Font("プイッコ", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Temp.ForeColor = System.Drawing.Color.Black;
             this.Temp.Location = new System.Drawing.Point(34, 99);
             this.Temp.Name = "Temp";
-            this.Temp.Size = new System.Drawing.Size(51, 36);
+            this.Temp.Size = new System.Drawing.Size(43, 30);
             this.Temp.TabIndex = 10;
             this.Temp.Text = "🦈";
             this.Temp.Visible = false;

@@ -25,13 +25,13 @@ namespace YoketoruVS21
         const int EnemyIndex = PlayerIndex + Player;
         const int ItemIndex = EnemyIndex + Enemy;
 
-        const string PlayerText = "('ω')";
+        const string PlayerText = "('v')";
         const string EnemyText = "🦈";
         const string ItemText = "🍄";
 
         static Random rand = new Random();
 
-
+        //ステート設定
         enum State
         {
             None = -1,  //無効
@@ -93,6 +93,7 @@ namespace YoketoruVS21
         void UpdateGame()
         {
             Point mp = PointToClient(MousePosition);
+
         }
 
         //ゲーム中
