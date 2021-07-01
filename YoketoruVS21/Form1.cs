@@ -25,11 +25,12 @@ namespace YoketoruVS21
         const int EnemyIndex = PlayerIndex + Player;
         const int ItemIndex = EnemyIndex + Enemy;
 
-        const string PlayerText = "🐬";
+        const string PlayerText = "('ω')";
         const string EnemyText = "🦈";
         const string ItemText = "🍄";
 
         static Random rand = new Random();
+
 
         enum State
         {
@@ -42,11 +43,10 @@ namespace YoketoruVS21
         State currentState = State.None;
         State nextState = State.Title;
 
-        //Dll=ダイナミックリンクライブラリ
-        //[]はC#のほーぶん
         [DllImport("user32.dll")]   
         public static extern short GetAsyncKeyState(int vKey);
 
+        //フォーム
         public Form1()
         {
             InitializeComponent();
@@ -62,11 +62,12 @@ namespace YoketoruVS21
                     chrs[I].Text = EnemyText;
                 else
                     chrs[I].Text = ItemText;
-
+                chrs[I].Font = Temp.Font;
                 Controls.Add(chrs[I]);
             }
         }
 
+        //タイマー
         private void timer1_Tick(object sender, EventArgs e)
         {
             if(isDebug)
@@ -82,12 +83,19 @@ namespace YoketoruVS21
             }
 
             if(nextState!=State.None)
-            {
                 initProc();
-            }
 
+            if (currentState == State.Game)
+                UpdateGame();   
         }
 
+        //ゲームが始まったら
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+        }
+
+        //ゲーム中
         void initProc()
         {
             currentState = nextState;
@@ -106,6 +114,11 @@ namespace YoketoruVS21
                     break;
 
                 case State.Game:
+                    for (int i = EnemyIndex; i < Max; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
                     Title.Visible = false;
                     Start.Visible = false;
                     Hightscor.Visible = false;
@@ -123,11 +136,13 @@ namespace YoketoruVS21
             }
         }
 
+        //スタートボタン
         private void Start_Click(object sender, EventArgs e)
         {
             nextState = State.Game;
         }
 
+        //戻るボタン
         private void Modoru_Click(object sender, EventArgs e)
         {
             nextState = State.Title;

@@ -40,6 +40,7 @@ namespace YoketoruVS21
             this.Modoru = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Complete = new System.Windows.Forms.Label();
+            this.Temp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -147,12 +148,25 @@ namespace YoketoruVS21
             this.Complete.TabIndex = 9;
             this.Complete.Text = "🐚：10";
             // 
+            // Temp
+            // 
+            this.Temp.AutoSize = true;
+            this.Temp.Font = new System.Drawing.Font("プイッコ", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Temp.ForeColor = System.Drawing.Color.Black;
+            this.Temp.Location = new System.Drawing.Point(34, 99);
+            this.Temp.Name = "Temp";
+            this.Temp.Size = new System.Drawing.Size(51, 36);
+            this.Temp.TabIndex = 10;
+            this.Temp.Text = "🦈";
+            this.Temp.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(753, 446);
+            this.Controls.Add(this.Temp);
             this.Controls.Add(this.Complete);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Time);
@@ -181,6 +195,7 @@ namespace YoketoruVS21
         private System.Windows.Forms.Button Modoru;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Complete;
+        private System.Windows.Forms.Label Temp;
     }
 }
 
