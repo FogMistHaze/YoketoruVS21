@@ -13,8 +13,23 @@ namespace YoketoruVS21
 {
     public partial class Form1 : Form
     {
-
         const bool isDebug = true;
+
+        const int Player = 1;
+        const int Enemy = 3;
+        const int Item = 3;
+        const int Max = Player + Enemy + Item;
+
+        Label[] chrs = new Label[Max];
+        const int PlayerIndex = 0;
+        const int EnemyIndex = PlayerIndex + Player;
+        const int ItemIndex = EnemyIndex + Enemy;
+
+        const string PlayerText = "🐬";
+        const string EnemyText = "🦈";
+        const string ItemText = "🍄";
+
+        static Random rand = new Random();
 
         enum State
         {
@@ -35,6 +50,21 @@ namespace YoketoruVS21
         public Form1()
         {
             InitializeComponent();
+
+            for (int I = 0; I < Max; I++)
+            {
+                chrs[I] = new Label();
+                chrs[I].AutoSize = true;
+
+                if (I == PlayerIndex)
+                    chrs[I].Text = PlayerText;
+                else if (I < ItemIndex)
+                    chrs[I].Text = EnemyText;
+                else
+                    chrs[I].Text = ItemText;
+
+                Controls.Add(chrs[I]);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
