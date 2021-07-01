@@ -12,6 +12,9 @@ namespace YoketoruVS21
 {
     public partial class Form1 : Form
     {
+
+        
+
         enum State
         {
             None = -1,  //無効
@@ -57,7 +60,6 @@ namespace YoketoruVS21
                 case State.Game:
                     Title.Visible = false;
                     Start.Visible = false;
-                    Complete.Visible = false;
                     Hightscor.Visible = false;
                     break;
 
@@ -66,7 +68,7 @@ namespace YoketoruVS21
                     break;
 
                 case State.Clear:
-                    Clear.Visible = false;
+                    Clear.Visible = true;
                     break;
             }
         }
