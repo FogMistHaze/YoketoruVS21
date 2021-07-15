@@ -47,11 +47,11 @@ namespace YoketoruVS21
             // 
             this.Title.AutoSize = true;
             this.Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Title.Font = new System.Drawing.Font("プイッコ", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Title.ForeColor = System.Drawing.Color.DarkCyan;
             this.Title.Location = new System.Drawing.Point(160, 85);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(433, 72);
+            this.Title.Size = new System.Drawing.Size(340, 69);
             this.Title.TabIndex = 0;
             this.Title.Text = "よけとる2021";
             this.Title.Click += new System.EventHandler(this.Title_Click);
@@ -59,7 +59,7 @@ namespace YoketoruVS21
             // Start
             // 
             this.Start.BackColor = System.Drawing.Color.Pink;
-            this.Start.Font = new System.Drawing.Font("プイッコ", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Start.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.Start.Location = new System.Drawing.Point(280, 297);
             this.Start.Name = "Start";
@@ -81,49 +81,49 @@ namespace YoketoruVS21
             // Hightscor
             // 
             this.Hightscor.AutoSize = true;
-            this.Hightscor.Font = new System.Drawing.Font("プイッコ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Hightscor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Hightscor.Location = new System.Drawing.Point(271, 207);
             this.Hightscor.Name = "Hightscor";
-            this.Hightscor.Size = new System.Drawing.Size(210, 32);
+            this.Hightscor.Size = new System.Drawing.Size(175, 31);
             this.Hightscor.TabIndex = 4;
             this.Hightscor.Text = "はいすこあ 100";
             // 
             // Time
             // 
             this.Time.AutoSize = true;
-            this.Time.Font = new System.Drawing.Font("プイッコ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Time.Location = new System.Drawing.Point(12, 9);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(156, 32);
+            this.Time.Size = new System.Drawing.Size(131, 31);
             this.Time.TabIndex = 5;
             this.Time.Text = "たいむ 100";
             // 
             // Clear
             // 
             this.Clear.AutoSize = true;
-            this.Clear.Font = new System.Drawing.Font("プイッコ", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Clear.ForeColor = System.Drawing.Color.Fuchsia;
             this.Clear.Location = new System.Drawing.Point(286, 193);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(180, 61);
+            this.Clear.Size = new System.Drawing.Size(125, 59);
             this.Clear.TabIndex = 6;
             this.Clear.Text = "くりあ";
             // 
             // Gameover
             // 
             this.Gameover.AutoSize = true;
-            this.Gameover.Font = new System.Drawing.Font("プイッコ", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Gameover.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Gameover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Gameover.Location = new System.Drawing.Point(184, 193);
             this.Gameover.Name = "Gameover";
-            this.Gameover.Size = new System.Drawing.Size(384, 61);
+            this.Gameover.Size = new System.Drawing.Size(321, 59);
             this.Gameover.TabIndex = 7;
             this.Gameover.Text = "げーむおーばー";
             // 
             // Modoru
             // 
             this.Modoru.BackColor = System.Drawing.Color.Pink;
-            this.Modoru.Font = new System.Drawing.Font("プイッコ", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Modoru.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Modoru.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.Modoru.Location = new System.Drawing.Point(12, 377);
             this.Modoru.Name = "Modoru";
@@ -141,21 +141,22 @@ namespace YoketoruVS21
             // Complete
             // 
             this.Complete.AutoSize = true;
-            this.Complete.Font = new System.Drawing.Font("プイッコ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Complete.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Complete.Location = new System.Drawing.Point(654, 9);
             this.Complete.Name = "Complete";
-            this.Complete.Size = new System.Drawing.Size(87, 32);
+            this.Complete.Size = new System.Drawing.Size(84, 31);
             this.Complete.TabIndex = 9;
             this.Complete.Text = "🐚：10";
+            this.Complete.Click += new System.EventHandler(this.Complete_Click);
             // 
             // Temp
             // 
             this.Temp.AutoSize = true;
-            this.Temp.Font = new System.Drawing.Font("プイッコ", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Temp.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Temp.ForeColor = System.Drawing.Color.Black;
             this.Temp.Location = new System.Drawing.Point(34, 99);
             this.Temp.Name = "Temp";
-            this.Temp.Size = new System.Drawing.Size(43, 30);
+            this.Temp.Size = new System.Drawing.Size(42, 29);
             this.Temp.TabIndex = 10;
             this.Temp.Text = "🦈";
             this.Temp.Visible = false;

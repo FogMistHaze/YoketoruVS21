@@ -53,6 +53,7 @@ namespace YoketoruVS21
 
         int itemCount = 0;
         int time = 0;
+        int hiscore = 0;
 
         //フォーム
         public Form1()
@@ -65,12 +66,17 @@ namespace YoketoruVS21
                 chrs[I].AutoSize = true;
 
                 if (I == PlayerIndex)
+                {
                     chrs[I].Text = PlayerText;
+                }
                 else if (I < ItemIndex)
+                {
                     chrs[I].Text = EnemyText;
+                }
                 else
+                {
                     chrs[I].Text = ItemText;
-                chrs[I].Font = Temp.Font;
+                }
                 Controls.Add(chrs[I]);
             }
         }
@@ -94,7 +100,9 @@ namespace YoketoruVS21
                 initProc();
 
             if (currentState == State.Game)
-                UpdateGame();   
+            {
+                UpdateGame();
+            }
         }
 
         //ゲームが始まったら
@@ -109,12 +117,12 @@ namespace YoketoruVS21
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
             chrs[PlayerIndex].Left = mp.Y - chrs[PlayerIndex].Height / 2;
 
-            for (int i = EnemyIndex; i < Max; i++) 
+            for (int i = EnemyIndex; i < Max; i++)
             {
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
-                
-                if(chrs[i].Left<0)
+
+                if (chrs[i].Left < 0)
                 {
                     vx[i] = Math.Abs(vx[i]);
                 }
@@ -132,15 +140,15 @@ namespace YoketoruVS21
                 }
 
                 //当たり判定
-                if(    (mp.X>=chrs[i].Left)
-                    && (mp.X<chrs[i].Right)
-                    && (mp.Y>=chrs[i].Top)
-                    && (mp.Y<chrs[i].Bottom)
+                if ((mp.X >= chrs[i].Left)
+                    && (mp.X < chrs[i].Right)
+                    && (mp.Y >= chrs[i].Top)
+                    && (mp.Y < chrs[i].Bottom)
                    )
                 {
                     //MessageBox.Show("あたった！");
                     //敵か？
-                    if(i<ItemIndex)
+                    if (i < ItemIndex)
                     {
                         nextState = State.Gameover;
                     }
@@ -149,11 +157,11 @@ namespace YoketoruVS21
                         //アイテム
                         chrs[i].Visible = false;
                         itemCount--;
-                        if(itemCount<=0)
+                        if (itemCount <= 0)
                         {
                             nextState = State.Clear;
                         }
-                        leftLabel.Text = "🍄:" + itemCount;
+                        Complete.Text = "🍄:" + itemCount;
 
                         vx[i] = 0;
                         vy[i] = 0;
@@ -161,10 +169,11 @@ namespace YoketoruVS21
                     }
                 }
 
-                if ((time <= 0) && (nextState == State.None)) 
+                if ((time <= 0) && (nextState == State.None))
                 {
                     nextState = State.Gameover;
                 }
+            }
         }
 
         //ゲーム中
@@ -213,10 +222,10 @@ namespace YoketoruVS21
                     Clear.Visible = true;
                     Modoru.Visible = true;
                     Hightscor.Visible = true;
-                        if (time > hiscor) 
+                        if (time > hiscore) 
                         {
                             hiscore = time;
-                            Hightscor.Text = "HiScore" + hiscore;
+                            Hightscor.Text = "HightScore" + hiscore;
                         }
                     break;
             }
@@ -240,6 +249,10 @@ namespace YoketoruVS21
         {
             
         }
-        
+
+        private void Complete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
