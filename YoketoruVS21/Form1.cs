@@ -24,6 +24,7 @@ namespace YoketoruVS21
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + Player;
         const int ItemIndex = EnemyIndex + Enemy;
+        const int StartTime = 100;
 
         const string PlayerText = "('v')";
         const string EnemyText = "🦈";
@@ -44,11 +45,14 @@ namespace YoketoruVS21
         State nextState = State.Title;
 
         const int SpeedMax = 20;
-        int[] vx = new int[ChrMax];
-        int[] vy = new int[ChrMax];
+        int[] vx = new int[Max];
+        int[] vy = new int[Max];
 
         [DllImport("user32.dll")]   
         public static extern short GetAsyncKeyState(int vKey);
+
+        int itemCount = 0;
+        int time = 0;
 
         //フォーム
         public Form1()
@@ -96,13 +100,16 @@ namespace YoketoruVS21
         //ゲームが始まったら
         void UpdateGame()
         {
+            Time.Text = "Time" + time;
+            time--;
+
             Point mp = PointToClient(MousePosition);
 
             //mpがプレイヤーの中心になるように設定
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
             chrs[PlayerIndex].Left = mp.Y - chrs[PlayerIndex].Height / 2;
 
-            for(int i=EnemyIndex;i<ChrMax;i++)
+            for (int i = EnemyIndex; i < Max; i++) 
             {
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
@@ -141,7 +148,22 @@ namespace YoketoruVS21
                     {
                         //アイテム
                         chrs[i].Visible = false;
+                        itemCount--;
+                        if(itemCount<=0)
+                        {
+                            nextState = State.Clear;
+                        }
+                        leftLabel.Text = "🍄:" + itemCount;
+
+                        vx[i] = 0;
+                        vy[i] = 0;
+                        chrs[i].Left = 10000;
                     }
+                }
+
+                if ((time <= 0) && (nextState == State.None)) 
+                {
+                    nextState = State.Gameover;
                 }
         }
 
@@ -168,12 +190,17 @@ namespace YoketoruVS21
                     Start.Visible = false;
                     Hightscor.Visible = false;
 
-                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    for (int i = EnemyIndex; i < Max; i++)
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        chrs[i].Visible = true;
                     }
+
+                    itemCount = Item;
+                    time = StartTime + 1;
                     
                     break;
 
@@ -186,6 +213,11 @@ namespace YoketoruVS21
                     Clear.Visible = true;
                     Modoru.Visible = true;
                     Hightscor.Visible = true;
+                        if (time > hiscor) 
+                        {
+                            hiscore = time;
+                            Hightscor.Text = "HiScore" + hiscore;
+                        }
                     break;
             }
         }
