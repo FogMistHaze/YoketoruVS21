@@ -123,7 +123,26 @@ namespace YoketoruVS21
                 {
                     vy[i] = Math.Abs(vy[i]);
                 }
-            }
+
+                //当たり判定
+                if(    (mp.X>=chrs[i].Left)
+                    && (mp.X<chrs[i].Right)
+                    && (mp.Y>=chrs[i].Top)
+                    && (mp.Y<chrs[i].Bottom)
+                   )
+                {
+                    //MessageBox.Show("あたった！");
+                    //敵か？
+                    if(i<ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        //アイテム
+                        chrs[i].Visible = false;
+                    }
+                }
         }
 
         //ゲーム中
