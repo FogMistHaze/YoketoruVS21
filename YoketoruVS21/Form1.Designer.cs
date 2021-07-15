@@ -47,11 +47,11 @@ namespace YoketoruVS21
             // 
             this.Title.AutoSize = true;
             this.Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Title.ForeColor = System.Drawing.Color.DarkCyan;
-            this.Title.Location = new System.Drawing.Point(160, 85);
+            this.Title.Location = new System.Drawing.Point(165, 99);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(340, 69);
+            this.Title.Size = new System.Drawing.Size(451, 91);
             this.Title.TabIndex = 0;
             this.Title.Text = "よけとる2021";
             this.Title.Click += new System.EventHandler(this.Title_Click);
@@ -61,7 +61,7 @@ namespace YoketoruVS21
             this.Start.BackColor = System.Drawing.Color.Pink;
             this.Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Start.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.Start.Location = new System.Drawing.Point(280, 297);
+            this.Start.Location = new System.Drawing.Point(306, 296);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(193, 57);
             this.Start.TabIndex = 1;
@@ -81,10 +81,10 @@ namespace YoketoruVS21
             // Hightscor
             // 
             this.Hightscor.AutoSize = true;
-            this.Hightscor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Hightscor.Location = new System.Drawing.Point(271, 207);
+            this.Hightscor.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Hightscor.Location = new System.Drawing.Point(292, 225);
             this.Hightscor.Name = "Hightscor";
-            this.Hightscor.Size = new System.Drawing.Size(175, 31);
+            this.Hightscor.Size = new System.Drawing.Size(221, 39);
             this.Hightscor.TabIndex = 4;
             this.Hightscor.Text = "はいすこあ 100";
             // 
@@ -101,24 +101,25 @@ namespace YoketoruVS21
             // Clear
             // 
             this.Clear.AutoSize = true;
-            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Clear.ForeColor = System.Drawing.Color.Fuchsia;
-            this.Clear.Location = new System.Drawing.Point(286, 193);
+            this.Clear.Location = new System.Drawing.Point(323, 114);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(125, 59);
+            this.Clear.Size = new System.Drawing.Size(163, 76);
             this.Clear.TabIndex = 6;
             this.Clear.Text = "くりあ";
             // 
             // Gameover
             // 
             this.Gameover.AutoSize = true;
-            this.Gameover.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Gameover.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Gameover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Gameover.Location = new System.Drawing.Point(184, 193);
+            this.Gameover.Location = new System.Drawing.Point(184, 173);
             this.Gameover.Name = "Gameover";
-            this.Gameover.Size = new System.Drawing.Size(321, 59);
+            this.Gameover.Size = new System.Drawing.Size(420, 76);
             this.Gameover.TabIndex = 7;
             this.Gameover.Text = "げーむおーばー";
+            this.Gameover.Click += new System.EventHandler(this.Gameover_Click);
             // 
             // Modoru
             // 
@@ -146,7 +147,7 @@ namespace YoketoruVS21
             this.Complete.Name = "Complete";
             this.Complete.Size = new System.Drawing.Size(84, 31);
             this.Complete.TabIndex = 9;
-            this.Complete.Text = "🐚：10";
+            this.Complete.Text = "🍄:10";
             this.Complete.Click += new System.EventHandler(this.Complete_Click);
             // 
             // Temp

@@ -41,6 +41,7 @@ namespace YoketoruVS21
             Gameover,   //ゲームオーバー
             Clear,      //クリア
         }
+
         State currentState = State.None;
         State nextState = State.Title;
 
@@ -225,7 +226,7 @@ namespace YoketoruVS21
                         if (time > hiscore) 
                         {
                             hiscore = time;
-                            Hightscor.Text = "HightScore" + hiscore;
+                            Hightscor.Text = "はいすこあ" + hiscore;
                         }
                     break;
             }
@@ -251,6 +252,11 @@ namespace YoketoruVS21
         }
 
         private void Complete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Gameover_Click(object sender, EventArgs e)
         {
 
         }
