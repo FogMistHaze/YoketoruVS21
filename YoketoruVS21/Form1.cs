@@ -43,6 +43,10 @@ namespace YoketoruVS21
         State currentState = State.None;
         State nextState = State.Title;
 
+        const int SpeedMax = 20;
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
+
         [DllImport("user32.dll")]   
         public static extern short GetAsyncKeyState(int vKey);
 
@@ -94,6 +98,32 @@ namespace YoketoruVS21
         {
             Point mp = PointToClient(MousePosition);
 
+            //mpがプレイヤーの中心になるように設定
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
+            chrs[PlayerIndex].Left = mp.Y - chrs[PlayerIndex].Height / 2;
+
+            for(int i=EnemyIndex;i<ChrMax;i++)
+            {
+                chrs[i].Left += vx[i];
+                chrs[i].Top += vy[i];
+                
+                if(chrs[i].Left<0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+                if (chrs[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                if (chrs[i].Right < ClientSize.Width)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+                if (chrs[i].Bottom < ClientSize.Height)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+            }
         }
 
         //ゲーム中
@@ -115,14 +145,17 @@ namespace YoketoruVS21
                     break;
 
                 case State.Game:
-                    for (int i = EnemyIndex; i < Max; i++)
-                    {
-                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
-                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
-                    }
                     Title.Visible = false;
                     Start.Visible = false;
                     Hightscor.Visible = false;
+
+                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                        vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                    }
+                    
                     break;
 
                 case State.Gameover:
@@ -133,6 +166,7 @@ namespace YoketoruVS21
                 case State.Clear:
                     Clear.Visible = true;
                     Modoru.Visible = true;
+                    Hightscor.Visible = true;
                     break;
             }
         }
