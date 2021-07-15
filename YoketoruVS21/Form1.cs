@@ -86,6 +86,7 @@ namespace YoketoruVS21
         //タイマー
         private void timer1_Tick(object sender, EventArgs e)
         {
+            /*
             if(isDebug)
             {
                 if(GetAsyncKeyState((int)Keys.O)<0)
@@ -97,9 +98,13 @@ namespace YoketoruVS21
                     nextState = State.Clear;
                 }
             }
+            */
 
             if(nextState!=State.None)
-                initProc();
+            {
+               initProc();
+            }
+               
 
             if (currentState == State.Game)
             {
