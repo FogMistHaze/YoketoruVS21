@@ -153,13 +153,12 @@ namespace YoketoruVS21
             // Temp
             // 
             this.Temp.AutoSize = true;
-            this.Temp.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Temp.ForeColor = System.Drawing.Color.Black;
-            this.Temp.Location = new System.Drawing.Point(34, 99);
+            this.Temp.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Temp.Location = new System.Drawing.Point(43, 183);
             this.Temp.Name = "Temp";
-            this.Temp.Size = new System.Drawing.Size(42, 29);
+            this.Temp.Size = new System.Drawing.Size(39, 28);
             this.Temp.TabIndex = 10;
-            this.Temp.Text = "🦈";
+            this.Temp.Text = "🍄";
             this.Temp.Visible = false;
             // 
             // Form1

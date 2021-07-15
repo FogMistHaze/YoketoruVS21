@@ -16,8 +16,8 @@ namespace YoketoruVS21
         const bool isDebug = true;
 
         const int Player = 1;
-        const int Enemy = 3;
-        const int Item = 3;
+        const int Enemy = 10;
+        const int Item = 10;
         const int Max = Player + Enemy + Item;
 
         Label[] chrs = new Label[Max];
@@ -27,7 +27,7 @@ namespace YoketoruVS21
         const int StartTime = 100;
 
         const string PlayerText = "('v')";
-        const string EnemyText = "🦈";
+        const string EnemyText = "⚔";
         const string ItemText = "🍄";
 
         static Random rand = new Random();
@@ -61,24 +61,25 @@ namespace YoketoruVS21
         {
             InitializeComponent();
 
-            for (int I = 0; I < Max; I++)
+            for (int i = 0; i < Max; i++)
             {
-                chrs[I] = new Label();
-                chrs[I].AutoSize = true;
+                chrs[i] = new Label();
+                chrs[i].AutoSize = true;
 
-                if (I == PlayerIndex)
+                if (i == PlayerIndex)
                 {
-                    chrs[I].Text = PlayerText;
+                    chrs[i].Text = PlayerText;
                 }
-                else if (I < ItemIndex)
+                else if (i < ItemIndex)
                 {
-                    chrs[I].Text = EnemyText;
+                    chrs[i].Text = EnemyText;
                 }
                 else
                 {
-                    chrs[I].Text = ItemText;
+                    chrs[i].Text = ItemText;
                 }
-                Controls.Add(chrs[I]);
+                chrs[i].Font = Temp.Font;
+                Controls.Add(chrs[i]);
             }
         }
 
@@ -109,7 +110,7 @@ namespace YoketoruVS21
         //ゲームが始まったら
         void UpdateGame()
         {
-            Time.Text = "Time" + time;
+            Time.Text = "たいむ" + time;
             time--;
 
             Point mp = PointToClient(MousePosition);
@@ -120,6 +121,10 @@ namespace YoketoruVS21
 
             for (int i = EnemyIndex; i < Max; i++)
             {
+
+                if (!chrs[i].Visible)
+                    continue;
+
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
 
@@ -131,23 +136,22 @@ namespace YoketoruVS21
                 {
                     vy[i] = Math.Abs(vy[i]);
                 }
-                if (chrs[i].Right < ClientSize.Width)
+                if (chrs[i].Right > ClientSize.Width)
                 {
-                    vx[i] = Math.Abs(vx[i]);
+                    vx[i] = -Math.Abs(vx[i]);
                 }
-                if (chrs[i].Bottom < ClientSize.Height)
+                if (chrs[i].Bottom > ClientSize.Height)
                 {
-                    vy[i] = Math.Abs(vy[i]);
+                    vy[i] = -Math.Abs(vy[i]);
                 }
 
                 //当たり判定
-                if ((mp.X >= chrs[i].Left)
-                    && (mp.X < chrs[i].Right)
-                    && (mp.Y >= chrs[i].Top)
-                    && (mp.Y < chrs[i].Bottom)
+                if (    (mp.X >= chrs[i].Left)
+                    &&  (mp.X < chrs[i].Right)
+                    &&  (mp.Y >= chrs[i].Top)
+                    &&  (mp.Y < chrs[i].Bottom)
                    )
                 {
-                    //MessageBox.Show("あたった！");
                     //敵か？
                     if (i < ItemIndex)
                     {
@@ -163,10 +167,6 @@ namespace YoketoruVS21
                             nextState = State.Clear;
                         }
                         Complete.Text = "🍄:" + itemCount;
-
-                        vx[i] = 0;
-                        vy[i] = 0;
-                        chrs[i].Left = 10000;
                     }
                 }
 
